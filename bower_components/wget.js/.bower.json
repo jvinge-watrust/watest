@@ -1,0 +1,36 @@
+{
+  "name": "wget.js",
+  "main": "wget.js",
+  "homepage": "https://github.com/robertleeplummerjr/wget.js",
+  "authors": [
+    "Robert Plummer <robertleeplummerjr@gmail.com>"
+  ],
+  "description": "a simple downloader for js similar to Linux wget",
+  "moduleType": [],
+  "keywords": [
+    "ajax",
+    "download",
+    "json",
+    "wget",
+    "linux",
+    "promise"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "6540e3f675",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "6540e3f675e035b825e6af7f977d249ca1ac16ce"
+  },
+  "_source": "https://github.com/robertleeplummerjr/wget.js.git",
+  "_target": "*",
+  "_originalSource": "wget",
+  "_direct": true
+}

@@ -1,0 +1,201 @@
+.full-width-title {
+  background-color: #007ca8;
+  color: #ffffff;
+  float: left;
+  font-size: 79em;
+  letter-spacing: .02em;
+  line-height: 0.6;
+  margin: 0 0 0 -1%;
+  overflow: hidden;
+  padding-bottom: 0.2em;
+  padding-right: 50px;
+  text-align: right;
+  white-space: nowrap;
+}
+#our-story-container {
+  font-family: "museo-slab",serif;
+  font-size: 62.5%;
+  overflow: hidden;
+  padding: 0;
+  #our-story-header {
+    background-color: #407685;
+    height: 100vh;
+    padding: 8%;
+    h1 {
+      color: #ffffff;
+      font-size: 4em;
+      line-height: 1.7em;
+      text-align: center;
+    }
+    span {
+      color: white;
+      font-size: 4em;
+      height: 100px;
+      left: 0;
+      margin: 30px 0 0 2%;
+      position: absolute;
+      top: 0;
+    }
+  }
+  #our-story-copy {
+    padding: 60px 8% 0 8%;
+    h2 {
+      color:#007ca8;
+      font-size: 4.5em;
+      line-height: 1.4em;
+      margin-bottom: 200px;
+    }
+    p {
+      color:#79c2be;
+      font-family: "freight-sans-pro",sans-serif;
+      font-size: 2.3em;
+      padding-right: 6%;
+    }
+  }
+  #our-story-imagery {
+    background-color:#c9ced1;
+    float: right;
+    height: 100vh;
+  }
+  #our-story-footer {
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    h1 {
+      background: #007ca8;
+      color: #ffffff;
+      font-family: "museo-slab",serif;
+      font-size: 23vw;
+      overflow: hidden;
+      left: -1%;
+      line-height: 1em;
+      margin: 0;
+      padding-top: 150px;
+      position: relative;
+      top: -200px;
+      white-space: nowrap;
+      width: 101%;
+    }
+  }
+}
+/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.timeline {
+  color: #ffffff;
+  float: left;
+  margin-left: 20%;
+  margin-top: -220px;
+  width: 80%;
+  time {
+    bottom: 30px;
+    color: #007ca8;
+    display: block;
+    font-size: 5vw;
+    font-weight: bold;
+    line-height: 0;
+    margin-left: -18vw;
+    margin-bottom: 8px;
+    position: absolute;
+  }
+  ul {
+    background: #ffffff;
+    float: left;
+    padding: 0;
+    li {
+      list-style-type: none;
+      position: relative;
+      width: 6px;
+      margin: 0 auto;
+      padding-top: 100px;
+      background: #007ca8;
+      div {
+        position: relative;
+        bottom: 0;
+        left: 45px;
+        width: 60vw;
+        padding: 15px;
+        background: #79c2be;
+      }
+      div::before {
+        content: '';
+        position: absolute;
+        bottom: 7px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        left: -15px;
+        border-width: 8px 16px 8px 0;
+        border-color: transparent #79c2be transparent transparent;
+      }
+    }
+    li::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: inherit;
+    }
+  }
+}
+
+/* EFFECTS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline ul li::after {
+  transition: background .5s ease-in-out;
+}
+
+.timeline ul li.in-view::after {
+  background: #79c2be;
+}
+
+.timeline ul li div {
+  visibility: hidden;
+  opacity: 0;
+  transition: all .5s ease-in-out;
+}
+
+.timeline ul li div {
+  transform: translate3d(200px, 0, 0);
+}
+
+.timeline ul li.in-view div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@media screen and (max-width: 900px) {
+  .timeline ul li div {
+    width: 250px;
+  }
+  .timeline ul li:nth-child(even) div {
+    left: -289px;
+    /*250+45-6*/
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .timeline ul li {
+    margin-left: 20px;
+  }
+  .timeline ul li div {
+    width: calc(100vw - 91px);
+  }
+  .timeline ul li:nth-child(even) div {
+    left: 45px;
+  }
+  .timeline ul li:nth-child(even) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent #F45B69 transparent transparent;
+  }
+}

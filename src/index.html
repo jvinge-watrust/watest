@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html ng-app="ologyApp" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gulp Test</title>
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- inject:js -->
+  <!-- endinject -->
+
+  <!-- @TODO LINK LOCALLY -->
+  <!-- @TODO BOWER INSTALL SCRIPTS -->
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"/>
+  <script type="text/javascript">
+    'use strict';
+// app.js
+var ologyApp = angular.module('ologyApp', ['ui.router']);
+
+ologyApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+                // For any unmatched url, send to /business
+                $urlRouterProvider.otherwise("/business")
+                 
+                $stateProvider
+                        .state('business', {//State demonstrating Nested views
+                            url: "/business",
+                            templateUrl: "business.html"
+                        })
+                        .state('business.products', {//nested state [products is the nested state of business state]
+                            url: "/products",
+                            templateUrl: "products.html",
+                            controller: function($scope){
+                                $scope.products = ["Computer", "Printers", "Phones", "Bags"];
+                            }
+                        })
+                        .state('business.services', {//nested state [services is the nested state of business state]
+                            url: "/services",
+                            templateUrl: "services.html",
+                            controller: function($scope){
+                                $scope.services = ["Selling", "Support", "Delivery", "Reparation"];
+                            }
+                        })
+ 
+                        .state('portfolio', {//State demonstrating Multiple,named views
+                            url: "/portfolio",
+                            views: {
+                                ""  :    { templateUrl: "home-view.html" },
+                                "view1@portfolio": { template: "Write whatever you want, it's your virtual company." },
+                                "view2@portfolio": { templateUrl: "clients.html" ,
+                                    controller: function($scope){
+                                            $scope.clients = ["HP", "IBM", "MicroSoft"];
+                                    }
+                                }
+                            }
+                        })
+            }]);
+  </script> 
+</head>
+<body>
+
+  <!-- @TODO move this script and other custom scripts to an injection site here at the bottom of the index file -->
+ <!--   <script src="https://use.typekit.net/bor3yfh.js"></script>   -->
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <script>
+  $(document).ready(function(){
+    // Activate Carousel
+    $(".carousel").carousel();
+    
+    // Enable Carousel Indicators
+    $(".item1").click(function(){
+        $(".carousel").carousel(0);
+    });
+    $(".item2").click(function(){
+        $(".carousel").carousel(1);
+    });
+    $(".item3").click(function(){
+        $(".carousel").carousel(2);
+    });
+    
+    // Enable Carousel Controls
+    $(".left").click(function(){
+        $(".carousel").carousel("prev");
+    });
+    $(".right").click(function(){
+        $(".carousel").carousel("next");
+    });
+  });
+  </script>
+  <div ui-view=""></div>  
+</body>
+</html>
